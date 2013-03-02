@@ -10,6 +10,7 @@ group :test do
   gem 'rack-test'
   gem 'rspec'
   gem 'rake'
+  gem 'jasmine'
   gem 'ci_reporter'
   gem 'simplecov'
   gem 'simplecov-rcov'
