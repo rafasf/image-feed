@@ -15,7 +15,7 @@ ImageFeed.viewer = function () {
   self.images = (function () { return images; })();
 
   var addToPage = function(url) {
-    var image = $('<img />').attr('src', url);
+    var image = $('<img />').attr('src', url['image_url']);
     $('#content').append(image);
   };
 

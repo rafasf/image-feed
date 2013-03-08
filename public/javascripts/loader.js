@@ -17,7 +17,8 @@ ImageFeed.loader = function(viewer) {
   };
 
   var addToViewer = function(response) {
-    viewer.add(response);
+    response.map(viewer.add);
+    viewer.render();
   };
 
   return self;

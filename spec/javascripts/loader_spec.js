@@ -3,7 +3,7 @@ describe('loader', function () {
       viewer;
 
   beforeEach(function () {
-    viewer = jasmine.createSpyObj('viewer', ['add']);
+    viewer = jasmine.createSpyObj('viewer', ['add', 'render']);
     loader = ImageFeed.loader(viewer);
   });
 
@@ -20,13 +20,14 @@ describe('loader', function () {
       loader.add('first feed');
 
       spyOn($, 'ajax').andCallFake(
-        function(opts) { opts.success('something'); }
+        function(opts) { opts.success(['something']); }
       );
 
       loader.load();
 
       expect($.ajax.calls[0].args[0]['url']).toBe('first feed');
-      expect(viewer.add).toHaveBeenCalledWith('something');
+      expect(viewer.add).toHaveBeenCalledWith('something', 0, ['something']);
+      expect(viewer.render).toHaveBeenCalled();
     });
   });
 
