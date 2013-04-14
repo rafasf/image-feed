@@ -1,6 +1,7 @@
-$(document).ready(function () {
-  var loader = ImageFeed.loader(ImageFeed.viewer());
+var viewer = ImageFeed.viewer();
+var loader = ImageFeed.loader(viewer);
+loader.add('reddit/funny');
 
-  loader.add('reddit/funny');
+$(document).ready(function () {
   loader.load();
 });

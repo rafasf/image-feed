@@ -3,7 +3,7 @@ describe('loader', function () {
       viewer;
 
   beforeEach(function () {
-    viewer = jasmine.createSpyObj('viewer', ['add', 'render']);
+    viewer = jasmine.createSpyObj('viewer', ['add', 'render', 'addToNotLoaded']);
     loader = ImageFeed.loader(viewer);
   });
 
@@ -27,8 +27,20 @@ describe('loader', function () {
 
       expect($.ajax.calls[0].args[0]['url']).toBe('first feed');
       expect(viewer.add).toHaveBeenCalledWith('something', 0, ['something']);
-      expect(viewer.render).toHaveBeenCalled();
     });
+
+    it('adds to fail list if not loaded propertly', function() {
+      loader.add('a feed');
+
+      spyOn($, 'ajax').andCallFake(
+        function(opts) { opts.error(); }
+      );
+
+      loader.load();
+
+      expect(viewer.addToNotLoaded).toHaveBeenCalledWith('a feed');
+    });
+
   });
 
 });

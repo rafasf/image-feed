@@ -2,20 +2,23 @@ var ImageFeed = ImageFeed || {};
 
 ImageFeed.viewer = function () {
   var self = {},
-      images = [];
+      images = [],
+      notLoaded = [];
 
   self.add = function(url) {
     images.push(url);
-  };
-
-  self.render = function () {
-    images.map(addToPage);
+    addToPage({ image_url: url });
   };
 
   self.images = (function () { return images; })();
+  self.nonLoadedFeeds = (function () { return notLoaded; })();
 
-  var addToPage = function(url) {
-    var image = $('<img />').attr('src', url['image_url']);
+  self.addToNotLoaded = function(url) {
+    notLoaded.push(url);
+  };
+
+  var addToPage = function(feedImage) {
+    var image = $('<img />').attr('src', feedImage['image_url']);
     $('#content').append(image);
   };
 

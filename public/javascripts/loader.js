@@ -11,14 +11,19 @@ ImageFeed.loader = function(viewer) {
   self.feeds = (function () { return feeds; })();
 
   self.load = function () {
-    feeds.forEach(function(feed) {
-      $.ajax({ url: feed, success: addToViewer });
-    });
+    feeds.forEach(function(feed) { load(feed); });
+  };
+
+  var load = function(url) {
+    $.ajax({ url: url, success: addToViewer, error: function() { addToNotLoaded(url); } });
   };
 
   var addToViewer = function(response) {
     response.map(viewer.add);
-    viewer.render();
+  };
+
+  var addToNotLoaded = function(url) {
+    viewer.addToNotLoaded(url);
   };
 
   return self;
