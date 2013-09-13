@@ -10,12 +10,12 @@ describe SharerPicsLinkExtractor do
     let(:extractor) { SharerPicsLinkExtractor.new }
 
     it 'extracts the image url if present' do
-      RestClient.stub!(:get).with(a_url).and_return('<img alt="something" src="http://path.to.image">')
+      RestClient.stub(:get).with(a_url).and_return('<img alt="something" src="http://path.to.image">')
       extractor.image_in(a_url).should == 'http://path.to.image'
     end
 
     it 'returns empty if image url is not present' do
-      RestClient.stub!(:get).with(a_url).and_return('<span>no link here</span>')
+      RestClient.stub(:get).with(a_url).and_return('<span>no link here</span>')
       extractor.image_in(a_url).should be_empty
     end
   end

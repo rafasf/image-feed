@@ -10,4 +10,3 @@ get '/reddit/:area' do
   content_type :json
   RedditFetcher.new.fetch(params[:area]).to_json
 end
-

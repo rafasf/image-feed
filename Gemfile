@@ -1,17 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'sinatra'
-gem 'rest-client'
-gem 'nokogiri'
-gem 'json'
-gem 'haml'
+gem 'sinatra', '~> 1.4.3'
+gem 'rest-client', '~> 1.6.7'
+gem 'nokogiri', '~> 1.6.0'
+gem 'json', '~> 1.8.0'
+gem 'haml', '~> 4.0.3'
 
 group :test do
-  gem 'rack-test'
-  gem 'rspec'
-  gem 'rake'
-  gem 'jasmine'
-  gem 'ci_reporter'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
+  gem 'rack-test', '~> 0.6.2'
+  gem 'rspec', '~> 2.14.1'
+  gem 'rake', '~> 10.1.0'
 end
