@@ -1,3 +1,4 @@
 *.swp
+.bundle/
 coverage
 spec/reports
