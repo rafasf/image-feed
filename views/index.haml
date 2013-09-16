@@ -1,3 +1,24 @@
-%title "Fun" Images
-%h1 Hello
-#content
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "UTF-8"}/
+    %title An Attempt
+    %link{:rel => "stylesheet", :type => "text/css", :href => "stylesheets/style.css" }
+  %body{"ng-app" => "imageViewer"}
+    %div{"ng-controller" => "FetchCtrl"}
+      %section{:id => "fetch"}
+        %div
+          %span {{provider}}/
+          %input#section{:name => "section", "ng-model" => "area", :placeholder => "Enter area here", :type => "text"}/
+          %button{"ng-click" => "fetch(provider, area)"} Get it!
+      %section{:id => "controls"}
+        %div
+          %span{:class => "link", "ng-click" => "previous()"} Previous
+          |
+          %span{:class => "link", "ng-click" => "next()"} Next
+      %section{:id => "the-fun"}
+        %img{"ng-src" => "{{currentImage['image_url']}}", :alt => "{{currentImage['title']}}"}
+  %script{:src => "javascripts/angular.min.js"}
+  %script{:src => "javascripts/main.js"}
+  %script{:src => "javascripts/services.js"}
+  %script{:src => "javascripts/controllers.js"}

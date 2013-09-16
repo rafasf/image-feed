@@ -1,0 +1,39 @@
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+section#fetch {
+  padding: 20px;
+  background-color: #6699CC;
+}
+
+section#fetch div {
+  text-align: center;
+  margin: 0 auto;
+  width: 300px;
+}
+
+section#controls {
+  padding: 5px;
+  background-color: #66CCFF;
+}
+
+section#controls div {
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+}
+
+section#the-fun img {
+  padding: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span.link {
+  cursor: pointer;
+}
