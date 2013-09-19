@@ -1,39 +1,39 @@
-html, body {
+body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  width: 100%;
+  background-color: #000;
 }
 
 section#fetch {
-  padding: 20px;
-  background-color: #6699CC;
+  letter-spacing: 2px;
+  color: #fff;
+  padding: 10px;
 }
 
-section#fetch div {
-  text-align: center;
-  margin: 0 auto;
-  width: 300px;
+section#fetch input {
+  color: #fff;
+  background-color: #000;
+  border: 0px;
+  border-bottom: 1px solid #333;
+  font-size: 20px;
+  padding: 3px;
 }
 
-section#controls {
-  padding: 5px;
-  background-color: #66CCFF;
+section#fetch button {
+  font-size: 16px;
+  border: 0;
+  padding: 5px 22px;
+  color: #fff;
+  background-color: #333;
 }
 
-section#controls div {
-  margin: 0 auto;
-  width: 300px;
-  text-align: center;
-}
+section#fetch button:hover { background-color: #666; }
+section#fetch button:active { background-color: #ccc; }
 
 section#the-fun img {
   padding: 5px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-span.link {
-  cursor: pointer;
 }
