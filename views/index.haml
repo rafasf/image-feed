@@ -1,11 +1,11 @@
 !!!
-%html{:lang => "en"}
+%html{:lang => "en", "ng-app" => "imageViewer"}
   %head
     %meta{:charset => "UTF-8"}/
     %title An Attempt
     %link{:rel => "stylesheet", :type => "text/css", :href => "stylesheets/style.css" }
-  %body{"ng-app" => "imageViewer"}
-    %div{"ng-controller" => "FetchCtrl"}
+  %body{"ng-controller" => "FetchCtrl", "ui-keyup" => "{'left': 'previous()', 'right': 'next()'}"}
+    %div
       %section{:id => "fetch"}
         %div
           %span {{provider}}/
@@ -13,7 +13,9 @@
           %button{"ng-click" => "fetch(provider, area)"} GO
       %section{:id => "the-fun"}
         %img{"ng-src" => "{{currentImage['image_url']}}", :alt => "{{currentImage['title']}}"}
+  %script{:src => "javascripts/lib/jquery-2.0.3.min.js"}
   %script{:src => "javascripts/lib/angular.min.js"}
+  %script{:src => "javascripts/lib/ui-utils.min.js"}
   %script{:src => "javascripts/services.js"}
   %script{:src => "javascripts/controllers.js"}
   %script{:src => "javascripts/main.js"}

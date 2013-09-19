@@ -1,1 +1,4 @@
-var imageViewer = angular.module('imageViewer', ['imageViewer.controllers', 'imageViewer.services']);
+var imageViewer = angular.module('imageViewer', [
+    'ui.keypress',
+    'imageViewer.controllers',
+    'imageViewer.services']);
