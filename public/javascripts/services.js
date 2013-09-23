@@ -34,3 +34,30 @@ services.factory('items', function () {
   return self;
 });
 
+services.factory('loadingNotifier', function ($rootScope) {
+  var self = {},
+      loadStart = 'loadStart',
+      loadStop = 'loadStop';
+
+  self.start = function () {
+    $rootScope.$broadcast(loadStart);
+  };
+
+  self.stop = function () {
+    $rootScope.$broadcast(loadStop);
+  };
+
+  self.onStart = function($scope, handler) {
+    $scope.$on(loadStart, function(e) {
+      handler();
+    });
+  };
+
+  self.onStop = function($scope, handler) {
+    $scope.$on(loadStop, function(e) {
+      handler();
+    });
+  };
+
+  return self;
+});

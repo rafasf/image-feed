@@ -1,13 +1,14 @@
 'use strict';
 
 describe('FetchCtrl', function () {
-  var scope, items;
+  var scope, items, loadingNotifier;
 
   beforeEach(module('imageViewer'));
   beforeEach(inject(function($rootScope, $controller) {
     items = jasmine.createSpyObj('items', ['createWith', 'first', 'next', 'previous']);
+    loadingNotifier = jasmine.createSpyObj('loadingNotifier', ['start', 'stop']);
     scope = $rootScope.$new();
-    $controller('FetchCtrl', { $scope: scope, items: items });
+    $controller('FetchCtrl', { $scope: scope, items: items, loadingNotifier: loadingNotifier });
   }));
 
   it('makes reddit the default provider', function () {
@@ -40,22 +41,29 @@ describe('FetchCtrl', function () {
       expect(scope.currentImage).toEqual({ image_url: 'first', title: 'first' });
     });
 
-    it('moves to next image', function () {
+    it('notifies when request starts and ends', function () {
+      expect(loadingNotifier.start).toHaveBeenCalled();
+      expect(loadingNotifier.stop).toHaveBeenCalled();
+    });
+
+    it('moves to next image and notify image load start', function () {
       items.next.andReturn(imageInfoFor('next'));
 
       scope.next();
 
       expect(items.next).toHaveBeenCalled();
       expect(scope.currentImage).toEqual({ image_url: 'next', title: 'next' });
+      expect(loadingNotifier.start.callCount).toEqual(2);
     });
 
-    it('moves to previous image', function () {
+    it('moves to previous image and notify image load start', function () {
       items.previous.andReturn(imageInfoFor('previous'));
 
       scope.previous();
 
       expect(items.previous).toHaveBeenCalled();
       expect(scope.currentImage).toEqual({ image_url: 'previous', title: 'previous' });
+      expect(loadingNotifier.start.callCount).toEqual(2);
     });
 
   });

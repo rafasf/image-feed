@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #000;
+  color: #fff;
 }
 
 section#fetch {
@@ -30,6 +31,11 @@ section#fetch button {
 
 section#fetch button:hover { background-color: #666; }
 section#fetch button:active { background-color: #ccc; }
+
+section#fetch img {
+  width: 58px;
+  height: 15px;
+}
 
 section#the-fun img {
   padding: 5px;

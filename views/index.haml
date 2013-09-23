@@ -11,8 +11,9 @@
           %span {{provider}}/
           %input#section{"flexible" => "", :name => "section", "ng-model" => "area", :placeholder => "Enter area here", :type => "text"}/
           %button{"ng-click" => "fetch(provider, area)"} GO
+          %img{"loader" => "", "ng-src" => "images/loader.gif"}
       %section{:id => "the-fun"}
-        %img{"ng-src" => "{{currentImage['image_url']}}", :alt => "{{currentImage['title']}}"}
+        %img{"loadable" => "", "ng-src" => "{{currentImage['image_url']}}", :alt => "{{currentImage['title']}}"}
   %script{:src => "javascripts/lib/jquery-2.0.3.min.js"}
   %script{:src => "javascripts/lib/angular.min.js"}
   %script{:src => "javascripts/lib/ui-utils.min.js"}
