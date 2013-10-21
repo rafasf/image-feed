@@ -2,8 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.2.4)
-    haml (4.0.3)
-      tilt
     json (1.8.0)
     mime-types (1.18)
     mini_portile (0.5.1)
@@ -35,7 +33,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  haml (~> 4.0.3)
   json (~> 1.8.0)
   nokogiri (~> 1.6.0)
   rack-test (~> 0.6.2)

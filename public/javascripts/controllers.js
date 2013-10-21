@@ -27,4 +27,6 @@ controllers.controller('FetchCtrl', function($scope, $http, items, loadingNotifi
     loadingNotifier.start();
     $scope.currentImage = items.previous();
   };
+
+  $scope.fetch($scope.provider, 'funny');
 });
