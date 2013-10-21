@@ -24,7 +24,7 @@ figure > figcaption {
   display: table-row;
 }
 
-figure:before {
+figure > figcaption:after {
   content: "...";
   position: absolute;
   left: 10px;
@@ -44,10 +44,15 @@ figure > figcaption {
   position: absolute;
   bottom: 0;
   padding: 10px;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  color: transparent;
   transition: all 300ms ease-in;
 }
 
-figure:hover figcaption { opacity: 1; }
-figure:hover:before { opacity: 0 }
+figure:hover > figcaption {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  opacity: 1;
+}
+
+figure > figcaption:empty:after,
+figure:hover > figcaption:after { opacity: 0; }
