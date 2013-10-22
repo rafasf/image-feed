@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Image Feed</title>
-  <link rel="stylesheet" href="stylesheets/style.css" media="screen">
+  <link rel="stylesheet" href="/assets/app.css" media="screen">
 </head>
 <body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }" srcchange>
   <h1 loader>loading</h1>
@@ -12,11 +12,6 @@
     <figcaption>{{ currentImage['title'] }}</figcaption>
   </figure>
 
-  <script src="javascripts/lib/jquery-2.0.3.min.js"></script>
-  <script src="javascripts/lib/angular.min.js"></script>
-  <script src="javascripts/lib/ui-utils.min.js"></script>
-  <script src="javascripts/services.js"></script>
-  <script src="javascripts/controllers.js"></script>
-  <script src="javascripts/main.js"></script>
+  <script src="/assets/app.js"></script>
 </body>
 </html>
