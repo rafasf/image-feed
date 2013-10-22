@@ -1,5 +1,6 @@
 *.swp
 .bundle/
+node_modules/
 true
 coverage
 spec/reports
