@@ -4,8 +4,10 @@ class Assets < Sinatra::Base
       env.append_path("#{settings.root}/../app/stylesheets")
       env.append_path("#{settings.root}/../app/javascripts")
 
-      env.js_compressor = YUI::JavaScriptCompressor.new
-      env.css_compressor = YUI::CssCompressor.new
+      if ENV['RACK_ENV'] == 'production'
+        env.js_compressor = YUI::JavaScriptCompressor.new
+        env.css_compressor = YUI::CssCompressor.new
+      end
     })
   end
 
