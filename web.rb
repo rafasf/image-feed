@@ -1,4 +1,4 @@
-Dir.glob(File.dirname(__FILE__) + '/src/*.rb').each { |file| require file }
+Dir.glob(File.dirname(__FILE__) + '/src/*.rb').sort.each { |file| require file }
 require 'sinatra'
 
 get '/' do
