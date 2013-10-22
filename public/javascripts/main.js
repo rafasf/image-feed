@@ -19,8 +19,10 @@ imageViewer.directive('loader', function (loadingNotifier) {
 
 imageViewer.directive('loadable', function(loadingNotifier) {
   return function(scope, elem) {
+    elem.css('visibility', 'hidden');
     elem.bind('load', function () {
       loadingNotifier.stop();
+      elem.css('visibility', 'visible');
     });
   };
 });

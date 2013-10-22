@@ -5,9 +5,10 @@
   <title>Image Feed</title>
   <link rel="stylesheet" href="stylesheets/style.css" media="screen">
 </head>
-<body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }">
+<body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }" srcchange>
+  <h1 loader>loading</h1>
   <figure>
-    <img ng:src="{{ currentImage['image_url'] }}" alt="{{ currentImage['title'] }}">
+    <img ng:src="{{ currentImage['image_url'] }}" alt="{{ currentImage['title'] }}" loadable>
     <figcaption>{{ currentImage['title'] }}</figcaption>
   </figure>
 
