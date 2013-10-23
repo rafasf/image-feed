@@ -6,6 +6,16 @@
   <link rel="stylesheet" href="/assets/app.css" media="screen">
 </head>
 <body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }" srcchange>
+  <nav>
+    <ul>
+      <li ng:repeat="provider in providers">
+        <input id="{{ provider }}" type="radio" name="provider" ng:model="selectedProvider" />
+        <label for="{{provider}}">{{ provider }}</label>
+      </li>
+    </ul>
+    /<input type="text" name="area" ng:model="area" placeholder="funny?" />
+    <button ng:click="fetch(selectedProvider, area)">show</button>
+  </nav>
   <h1 loader>loading</h1>
   <figure>
     <img ng:src="{{ currentImage['image_url'] }}" alt="{{ currentImage['title'] }}" loadable>

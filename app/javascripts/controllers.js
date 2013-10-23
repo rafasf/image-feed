@@ -3,7 +3,8 @@
 var controllers = angular.module('imageViewer.controllers', []);
 
 controllers.controller('FetchCtrl', function($scope, $http, items, loadingNotifier) {
-  $scope.provider = 'reddit';
+  $scope.providers = ['reddit'];
+  $scope.selectedProvider = 'reddit';
   $scope.currentImage = {};
 
   $scope.fetch = function(provider, area) {

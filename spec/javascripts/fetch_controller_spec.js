@@ -12,7 +12,7 @@ describe('FetchCtrl', function () {
   }));
 
   it('makes reddit the default provider', function () {
-    expect(scope.provider).toEqual('reddit');
+    expect(scope.selectedProvider).toEqual('reddit');
   });
 
   describe('images', function () {
