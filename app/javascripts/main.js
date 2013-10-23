@@ -5,14 +5,14 @@ var imageViewer = angular.module('imageViewer', [
 
 imageViewer.directive('loader', function (loadingNotifier) {
   return function(scope, elem) {
-    elem.css('visibility', 'hidden');
+    elem.removeClass('pace-active');
 
     loadingNotifier.onStart(scope, function () {
-      elem.css('visibility', 'visible');
+      elem.addClass('pace-active');
     });
 
     loadingNotifier.onStop(scope, function () {
-      elem.css('visibility', 'hidden');
+      elem.removeClass('pace-active');
     });
   };
 });

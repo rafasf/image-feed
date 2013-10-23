@@ -5,7 +5,10 @@
   <title>Image Feed</title>
   <link rel="stylesheet" href="/assets/app.css" media="screen">
 </head>
-<body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }" srcchange>
+<body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }">
+  <div class="pace" loader>
+    <div class="pace-activity"></div>
+  </div>
   <nav>
     <ul>
       <li ng:repeat="provider in providers">
@@ -16,7 +19,6 @@
     /<input type="text" name="area" ng:model="area" placeholder="funny?" />
     <button ng:click="fetch(selectedProvider, area)">show</button>
   </nav>
-  <h1 loader>loading</h1>
   <figure>
     <img ng:src="{{ currentImage['image_url'] }}" alt="{{ currentImage['title'] }}" loadable>
     <figcaption>{{ currentImage['title'] }}</figcaption>
