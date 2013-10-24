@@ -1,6 +1,6 @@
-* {
-  box-sizing: border-box;
-}
+@import 'variables';
+
+* { box-sizing: border-box; }
 
 html, body, ul, li {
   margin: 0;
@@ -9,10 +9,12 @@ html, body, ul, li {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: @bg;
+}
+
+body, input, button {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
   font-size: 1em;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
 }
 
 figure {
