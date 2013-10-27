@@ -1,6 +1,5 @@
-var services = angular.module('imageViewer.services', []);
-
-services.factory('items', function () {
+angular.module('imageViewer.services', [])
+.factory('items', function () {
   var self = {},
       selectedIndex = 0,
       images = [];
@@ -32,9 +31,8 @@ services.factory('items', function () {
   };
 
   return self;
-});
-
-services.factory('loadingNotifier', function ($rootScope) {
+})
+.factory('loadingNotifier', function ($rootScope) {
   var self = {},
       loadStart = 'loadStart',
       loadStop = 'loadStop';

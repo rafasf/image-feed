@@ -1,31 +1,30 @@
-'use strict';
+angular.module('imageViewer.controllers', [])
+.controller('FetchCtrl',
+    [ '$scope', '$http', 'items', 'loadingNotifier',
+    function($scope, $http, items, loadingNotifier) {
+      $scope.providers = ['reddit'];
+      $scope.selectedProvider = 'reddit';
+      $scope.currentImage = {};
 
-var controllers = angular.module('imageViewer.controllers', []);
+      $scope.fetch = function(provider, area) {
+        loadingNotifier.start();
+        var path = '/' + provider + '/' + area;
 
-controllers.controller('FetchCtrl', function($scope, $http, items, loadingNotifier) {
-  $scope.providers = ['reddit'];
-  $scope.selectedProvider = 'reddit';
-  $scope.currentImage = {};
+        $http.get(path)
+        .success(function (data) {
+          items.createWith(data);
+          $scope.currentImage = items.first();
+          loadingNotifier.stop();
+        })
+      };
 
-  $scope.fetch = function(provider, area) {
-    loadingNotifier.start();
-    var path = '/' + provider + '/' + area;
+      $scope.next = function () {
+        loadingNotifier.start();
+        $scope.currentImage = items.next();
+      };
 
-    $http.get(path)
-      .success(function (data) {
-        items.createWith(data);
-        $scope.currentImage = items.first();
-        loadingNotifier.stop();
-      })
-  };
-
-  $scope.next = function () {
-    loadingNotifier.start();
-    $scope.currentImage = items.next();
-  };
-
-  $scope.previous = function () {
-    loadingNotifier.start();
-    $scope.currentImage = items.previous();
-  };
-});
+      $scope.previous = function () {
+        loadingNotifier.start();
+        $scope.currentImage = items.previous();
+      };
+}]);
