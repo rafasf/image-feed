@@ -14,6 +14,18 @@ describe('items', function () {
     expect($items.first()).toEqual({ image_url: 'first.jpg', title: 'first' });
   });
 
+  it('returns the total count of images', function () {
+    $items.createWith(someImages);
+    expect($items.count()).toBe(4);
+  });
+
+  it('returns the position of the selected image', function () {
+    $items.createWith(someImages);
+    $items.next();
+
+    expect($items.selected()).toBe(1);
+  });
+
   describe('navigation', function () {
     beforeEach(function () {
       $items.createWith(someImages);

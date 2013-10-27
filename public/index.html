@@ -7,6 +7,7 @@
 </head>
 <body ng:controller="FetchCtrl" ui:keyup="{ left: 'previous()', right: 'next()' }">
   <div class="pace" loader><div class="pace-activity"></div></div>
+
   <nav>
     reddit / <input type="text" name="area" ng:model="area" placeholder="funny?" />
     <button ng:click="fetch(selectedProvider, area)">show</button>
@@ -15,6 +16,7 @@
     <img ng:src="{{ currentImage['image_url'] }}" alt="{{ currentImage['title'] }}" loadable>
     <figcaption>{{ currentImage['title'] }}</figcaption>
   </figure>
+  <footer>{{ counter() }}</footer>
 
   <script src="/assets/app.js"></script>
 </body>

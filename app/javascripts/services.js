@@ -30,6 +30,14 @@ angular.module('imageViewer.services', [])
     return images[0];
   };
 
+  self.count = function () {
+    return images.length;
+  };
+
+  self.selected = function () {
+    return selectedIndex;
+  };
+
   return self;
 })
 .factory('loadingNotifier', function ($rootScope) {

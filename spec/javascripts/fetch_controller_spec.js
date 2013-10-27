@@ -5,7 +5,7 @@ describe('FetchCtrl', function () {
 
   beforeEach(module('imageViewer'));
   beforeEach(inject(function($rootScope, $controller) {
-    items = jasmine.createSpyObj('items', ['createWith', 'first', 'next', 'previous']);
+    items = jasmine.createSpyObj('items', ['createWith', 'first', 'next', 'previous', 'count', 'selected']);
     loadingNotifier = jasmine.createSpyObj('loadingNotifier', ['start', 'stop']);
     scope = $rootScope.$new();
     $controller('FetchCtrl', { $scope: scope, items: items, loadingNotifier: loadingNotifier });
@@ -64,6 +64,20 @@ describe('FetchCtrl', function () {
       expect(items.previous).toHaveBeenCalled();
       expect(scope.currentImage).toEqual({ image_url: 'previous', title: 'previous' });
       expect(loadingNotifier.start.callCount).toEqual(2);
+    });
+
+    it('updates counter as user moves through the images', function () {
+      items.next.andReturn(imageInfoFor('next'));
+      items.count.andReturn(3);
+      items.selected.andReturn(1);
+
+      scope.next();
+
+      expect(scope.counter()).toBe('2/3');
+    });
+
+    it('makes counter empty if no items were loaded', function () {
+      expect(scope.counter()).toBe('');
     });
 
   });
