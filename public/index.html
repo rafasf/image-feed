@@ -12,7 +12,7 @@
     reddit / <input type="text" name="area" ng:model="area" placeholder="funny?" />
     <button ng:click="fetch(selectedProvider, area)">show</button>
   </nav>
-  <figure>
+  <figure ng:cloak>
     <img ng:src="{{ currentImage['image_url'] }}" alt="{{ currentImage['title'] }}" loadable>
     <figcaption>{{ currentImage['title'] }}</figcaption>
   </figure>
